@@ -21,4 +21,9 @@ class ProductParserTest {
 		assertTrue(ProductParser.isValidInput(input));
 	}
 	
+	@Test
+	void givenInputString_whenInputContainsCommaInDescriptionAndNotAtTheEnd_thenProductParserIsValidReturnFalse() {
+		String input = "Libro \"Il signore, degli anelli\" prezzo 12.49";
+		assertFalse(ProductParser.isValidInput(input));
+	}
 }
