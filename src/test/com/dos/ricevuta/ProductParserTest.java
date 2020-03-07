@@ -33,4 +33,9 @@ class ProductParserTest {
 		assertFalse(ProductParser.isValidInput(input));
 	}
 	
+	@Test
+	void givenInputString_whenInputNotContainsDescription_thenProductParserIsValidReturnFalse() {
+		String input = "Libro , prezzo 12.49";
+		assertFalse(ProductParser.isValidInput(input));
+	}
 }
