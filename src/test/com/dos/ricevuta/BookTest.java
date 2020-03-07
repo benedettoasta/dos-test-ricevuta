@@ -22,10 +22,17 @@ class BookTest {
 		assertThat(book.getDescription(), Is.is(""));
 	}
 	
-
 	@Test
 	void givenBookWithoutData_whenGetPrice_thenZeroValueReturn() {
 		Book book = new Book();
 		assertThat(book.getPrice(), Is.is((float)0));
+	}
+	
+	@Test
+	void givenBookWithData_whenGetDescription_thenDescriptionReturn() {
+		String descrizione = "Il Signore degli anelli";
+		float price = 0;
+		Book book = new Book(descrizione,price);
+		assertThat(book.getDescription(), Is.is(descrizione));
 	}
 }
