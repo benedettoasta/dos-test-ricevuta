@@ -128,4 +128,44 @@ class ProductFactoryTest {
 		AbstractProduct product = ProductFactory.create(input);
 		assertTrue(product.getImported());
 	}
+	
+	@Test
+	void givenInputString_whenInputBookIsImported_thenInstanceGetImportedTrueReturn() {
+		/**
+		 * non è definito nel testo dell'esercizio, ma assumo che sul tipo sia presente un prefisso "Imported "
+		 */
+		String input = "Imported book \"Cioccolato\", prezzo 3.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertTrue(product.getImported());
+	}
+	
+	@Test
+	void givenInputString_whenInputMusicIsImported_thenInstanceGetImportedTrueReturn() {
+		/**
+		 * non è definito nel testo dell'esercizio, ma assumo che sul tipo sia presente un prefisso "Imported "
+		 */
+		String input = "Imported compactdisk \"Cioccolato\", prezzo 3.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertTrue(product.getImported());
+	}
+	
+	@Test
+	void givenInputString_whenInputPharmIsImported_thenInstanceGetImportedTrueReturn() {
+		/**
+		 * non è definito nel testo dell'esercizio, ma assumo che sul tipo sia presente un prefisso "Imported "
+		 */
+		String input = "Imported antibiotico \"Cioccolato\", prezzo 3.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertTrue(product.getImported());
+	}
+	
+	@Test
+	void givenInputString_whenInputGenericProductIsImported_thenInstanceGetImportedTrueReturn() {
+		/**
+		 * non è definito nel testo dell'esercizio, ma assumo che sul tipo sia presente un prefisso "Imported "
+		 */
+		String input = "Imported prodottogen \"Cioccolato\", prezzo 3.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertTrue(product.getImported());
+	}
 }

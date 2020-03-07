@@ -46,18 +46,18 @@ public class ProductFactory {
 			float price = ProductParser.getPriceFromValidInput(input);
 			
 			if(Arrays.asList(BOOKS).contains(type)){
-				product = new Book(description,price);
+				product = new Book(description,price,imported);
 			}
 			else if(Arrays.asList(FOODS).contains(type)){
 				product = new Food(description,price,imported);
 			}
 			else if(Arrays.asList(MUSICS).contains(type)){
-				product = new Music(description,price);
+				product = new Music(description,price,imported);
 			}
 			else if(Arrays.asList(PHARMS).contains(type)){
-				product = new Pharm(description,price);
+				product = new Pharm(description,price,imported);
 			}else {
-				product = new GenericProduct(description,price);
+				product = new GenericProduct(description,price,imported);
 			}
 			
 		}
