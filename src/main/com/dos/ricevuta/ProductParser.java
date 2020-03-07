@@ -4,6 +4,7 @@ package main.com.dos.ricevuta;
 public class ProductParser {
 	
 	protected static String DESCRIPTION_DELIMETER = "\""; 
+	protected static String PRICE_PREFIX = ", prezzo "; 
 
 	public static boolean isValidInput(String input) {
 		// TODO Auto-generated method stub
@@ -13,10 +14,9 @@ public class ProductParser {
 			return false;
 		}
 
-		String inputProduct = input.substring(0,input.indexOf(DESCRIPTION_DELIMETER));
-		String inputPrice 	= input.substring(input.lastIndexOf(DESCRIPTION_DELIMETER)+1);
-		if(inputProduct.length()>0 && input.contains(" ") && (inputProduct+inputPrice).contains(","))
-		{
+		String inputProduct = input.substring(0,firstApice);
+		String inputPrice 	= input.substring(lastApice+1);
+		if(inputProduct.length()>0 && inputPrice.startsWith(PRICE_PREFIX)) {
 			return true;
 		}
 		return false;
