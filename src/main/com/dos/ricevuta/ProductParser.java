@@ -4,7 +4,9 @@ package main.com.dos.ricevuta;
 public class ProductParser {
 	
 	protected static String DESCRIPTION_DELIMETER = "\""; 
-	protected static String PRICE_PREFIX = ", prezzo "; 
+	protected static String PRICE_PREFIX = ", prezzo ";
+	protected static String IMPORTED_PREFIX = "imported "; 
+
 
 	public static boolean isValidInput(String input) {
 		// TODO Auto-generated method stub
@@ -32,7 +34,12 @@ public class ProductParser {
 	public static String getTypeFromValidInput(String input) {
 		if(isValidInput(input))
 		{
-			return input.substring(0,input.indexOf(DESCRIPTION_DELIMETER)).trim().toLowerCase();
+			int start = 0;
+			if(input.toLowerCase().startsWith(IMPORTED_PREFIX)){
+				start = IMPORTED_PREFIX.length();
+			}
+			
+			return input.substring(start,input.indexOf(DESCRIPTION_DELIMETER)).trim().toLowerCase();
 		}
 		return null;
 	}
