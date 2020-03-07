@@ -44,4 +44,10 @@ class ProductParserTest {
 		String input = "Libro \"Il signore, degli anelli\"";
 		assertFalse(ProductParser.isValidInput(input));
 	}
+	
+	@Test
+	void givenInputString_whenInputNotContainsPriceValue_thenProductParserIsValidReturnFalse() {
+		String input = "Libro \"Il signore, degli anelli\", prezzo ";
+		assertFalse(ProductParser.isValidInput(input));
+	}
 }
