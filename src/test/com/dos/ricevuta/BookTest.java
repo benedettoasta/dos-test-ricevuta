@@ -63,7 +63,6 @@ class BookTest {
 		assertThat(book.getPriceTaxed(), Is.is(priceBookWithTax));
 	}
 	
-
 	@Test
 	void givenBook_whenToString_thenStringForRicevutaReturn() {
 		String descrizione = "Il Signore degli anelli";
@@ -72,6 +71,18 @@ class BookTest {
 		Book book = new Book(descrizione,priceBook,imported);
 		
 		String result = "Il Signore degli anelli - BOOK: 10.50";
+		assertThat(book.toString(), Is.is(result));
+	}
+	
+
+	@Test
+	void givenAnotherBookWithOtherPrice_whenToString_thenStringForRicevutaReturn() {
+		String descrizione = "Il quartiere dei destini incrociati";
+		float priceBook = 11;
+		boolean imported = true;
+		Book book = new Book(descrizione,priceBook,imported);
+		
+		String result = "Il quartiere dei destini incrociati - BOOK: 11.55";
 		assertThat(book.toString(), Is.is(result));
 	}
 	
