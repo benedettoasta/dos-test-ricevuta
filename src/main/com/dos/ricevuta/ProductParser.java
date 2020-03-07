@@ -28,5 +28,42 @@ public class ProductParser {
 		}
 		return false;
 	}
-
+	
+	public static String getTypeFromValidInput(String input) {
+		if(isValidInput(input))
+		{
+			return input.substring(0,input.indexOf(DESCRIPTION_DELIMETER)).trim().toLowerCase();
+		}
+		return null;
+	}
+	
+	public static String getDescriptionFromValidInput(String input) {
+		if(isValidInput(input))
+		{
+			return input.substring(
+					input.indexOf(DESCRIPTION_DELIMETER)+1,
+					input.lastIndexOf(DESCRIPTION_DELIMETER)
+			).trim();
+		}
+		return null;
+	}
+	
+	public static float getPriceFromValidInput(String input) {
+		if(isValidInput(input))
+		{
+			float value = 0.0F;
+			try
+			{
+				value =	Float.parseFloat(
+						input.substring(
+								input.lastIndexOf(DESCRIPTION_DELIMETER)+1)
+										.substring(PRICE_PREFIX.length()
+						)
+				);
+			}catch (Exception e) {}
+			
+			return value;
+		}
+		return 0.0F;
+	}
 }
