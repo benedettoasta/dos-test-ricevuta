@@ -40,6 +40,7 @@ public class ProductFactory {
 		AbstractProduct product = null;
 		if(ProductParser.isValidInput(input)){
 			
+			boolean imported = ProductParser.getImportedFromValidInput(input);
 			String type = ProductParser.getTypeFromValidInput(input);
 			String description = ProductParser.getDescriptionFromValidInput(input);
 			float price = ProductParser.getPriceFromValidInput(input);
@@ -48,7 +49,7 @@ public class ProductFactory {
 				product = new Book(description,price);
 			}
 			else if(Arrays.asList(FOODS).contains(type)){
-				product = new Food(description,price);
+				product = new Food(description,price,imported);
 			}
 			else if(Arrays.asList(MUSICS).contains(type)){
 				product = new Music(description,price);

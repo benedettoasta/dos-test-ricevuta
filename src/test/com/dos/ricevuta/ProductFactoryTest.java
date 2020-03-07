@@ -119,4 +119,13 @@ class ProductFactoryTest {
 		assertTrue(product instanceof Food);
 	}
 
+	@Test
+	void givenInputString_whenInputSnackIsImported_thenInstanceGetImportedTrueReturn() {
+		/**
+		 * non è definito nel testo dell'esercizio, ma assumo che sul tipo sia presente un prefisso "Imported "
+		 */
+		String input = "Imported snack \"Cioccolato\", prezzo 3.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertTrue(product.getImported());
+	}
 }

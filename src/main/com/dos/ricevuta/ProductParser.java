@@ -73,4 +73,11 @@ public class ProductParser {
 		}
 		return 0.0F;
 	}
+
+	public static boolean getImportedFromValidInput(String input) {
+		if(input.toLowerCase().startsWith(IMPORTED_PREFIX)){
+			return true;
+		}
+		return false;
+	}
 }

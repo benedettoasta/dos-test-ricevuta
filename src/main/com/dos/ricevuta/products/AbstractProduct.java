@@ -75,4 +75,8 @@ public abstract class AbstractProduct implements IProduct {
 		return this.description + " - " + this.type + ": " + String.format(Locale.US,"%.2f", this.getPriceTaxed());
 	}
 
+	public boolean getImported() {
+		return this.imported;
+	}
+
 }
