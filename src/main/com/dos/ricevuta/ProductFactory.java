@@ -40,6 +40,11 @@ public class ProductFactory {
 		AbstractProduct product = null;
 		if(ProductParser.isValidInput(input)){
 			
+			boolean imported = false;
+			if(input.toLowerCase().startsWith("imported ")){
+				imported = true;
+				input = input.substring("imported ".length());
+			}
 			String type = ProductParser.getTypeFromValidInput(input);
 			String description = ProductParser.getDescriptionFromValidInput(input);
 			float price = ProductParser.getPriceFromValidInput(input);
