@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import main.com.dos.ricevuta.ProductFactory;
 import main.com.dos.ricevuta.products.AbstractProduct;
 import main.com.dos.ricevuta.products.Book;
+import main.com.dos.ricevuta.products.Food;
 
 class ProductFactoryTest {
 
@@ -53,6 +54,21 @@ class ProductFactoryTest {
 		String input = "Fumetto \"Topolino\", prezzo 12.49";
 		AbstractProduct product = ProductFactory.create(input);
 		assertThat(product.getType(), Is.is("BOOK"));
+	}
+	
+
+	@Test
+	void givenInputString_whenInputIsSnack_thenInstanceOfBookReturn() {
+		String input = "snack \"popcorn\", prezzo 12.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertTrue(product instanceof Food);
+	}
+
+	@Test
+	void givenInputString_whenInputIsPasta_thenFoodDataTypeCorrectlyReturn() {
+		String input = "Pasta \"spaghetti #5\", prezzo 12.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertTrue(product instanceof Food);
 	}
 
 }
