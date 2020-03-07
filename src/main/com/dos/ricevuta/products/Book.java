@@ -6,22 +6,16 @@ public class Book extends AbstractProduct{
 	
 	public Book()
 	{
-		this.init("", 0, false);
+		this.init("", 0, false,TYPE_CLASS);
 	}
 
 	public Book(String descrizione, float price) {
 		// TODO Auto-generated constructor stub
-		this.init(descrizione, price, false);
+		this.init(descrizione, price, false,TYPE_CLASS);
 	}
 
 	public Book(String descrizione, float price, boolean imported) {
 		// TODO Auto-generated constructor stub
-		this.init(descrizione, price, imported);
-	}
-	
-	protected void init(String descrizione, float price, boolean imported)
-	{
-		super.init(descrizione, price, imported);
-		this.type  = Book.TYPE_CLASS;
+		this.init(descrizione, price, imported,TYPE_CLASS);
 	}
 }

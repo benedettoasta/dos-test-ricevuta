@@ -24,11 +24,12 @@ public abstract class AbstractProduct implements IProduct {
 	protected float taxRate;
 	protected boolean imported;
 	
-	protected void init(String descrizione, float price, boolean imported)
+	protected void init(String descrizione, float price, boolean imported,String type)
 	{
 		this.description = descrizione;
 		this.price = price;
 		this.imported = imported;
+		this.type = type;
 		this.taxRate = AbstractProduct.TAX_RATE;
 		
 		if(this.imported) {

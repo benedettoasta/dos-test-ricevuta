@@ -1,15 +1,21 @@
 package main.com.dos.ricevuta.products;
 
-public class Food {
+public class Food extends AbstractProduct{
+	
+	protected static final String TYPE_CLASS = "FOOD";
 
 	public Food()
 	{
-		
-	}
-
-	public String getType() {
-		// TODO Auto-generated method stub
-		return "FOOD";
+		this.init("", 0, false,TYPE_CLASS);
 	}
 	
+	public Food(String descrizione, float price) {
+		// TODO Auto-generated constructor stub
+		this.init(descrizione, price, false, TYPE_CLASS);
+	}
+
+	public Food(String descrizione, float price, boolean imported) {
+		// TODO Auto-generated constructor stub
+		this.init(descrizione, price, imported,TYPE_CLASS);
+	}
 }
