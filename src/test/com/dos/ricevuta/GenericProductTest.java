@@ -15,4 +15,13 @@ class GenericProductTest {
 		assertThat(genericProduct.getType(), Is.is("GENERIC"));
 	}
 
+	@Test
+	void givenGenericProductWithData_whenGetPriceTaxed_thenPriceTaxedReturn() {
+		String descrizione = "Monitor TV";
+		float price = 100;
+		float priceWithTax = 110;
+		GenericProduct genericProduct = new GenericProduct(descrizione,price);
+		assertThat(genericProduct.getPriceTaxed(), Is.is(priceWithTax));
+	}
+	
 }
