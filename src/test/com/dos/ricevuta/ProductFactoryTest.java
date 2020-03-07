@@ -1,7 +1,9 @@
 package test.com.dos.ricevuta;
 
+import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 
 import main.com.dos.ricevuta.ProductFactory;
@@ -22,6 +24,27 @@ class ProductFactoryTest {
 		String input = "Libro \"Il signore degli anelli\", prezzo 12.49";
 		AbstractProduct product = ProductFactory.create(input);
 		assertTrue(product instanceof Book);
+	}
+	
+	@Test
+	void givenInputString_whenInputIsBook_thenBookDataTypeCorrectlyReturn() {
+		String input = "Libro \"Il signore degli anelli\", prezzo 12.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertThat(product.getType(), Is.is("BOOK"));
+	}
+	
+	@Test
+	void givenInputString_whenInputIsBook_thenBookDataDescriptionCorrectlyReturn() {
+		String input = "Libro \"Il signore, degli anelli\", prezzo 12.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertThat(product.getDescription(), Is.is("Il signore, degli anelli"));
+	}
+	
+	@Test
+	void givenInputString_whenInputIsBook_thenBookDataPriceCorrectlyReturn() {
+		String input = "Libro \"Il signore, degli anelli\", prezzo 12.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertThat(product.getPrice(), Is.is(12.49F));
 	}
 
 }

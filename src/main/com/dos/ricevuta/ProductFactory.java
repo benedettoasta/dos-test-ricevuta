@@ -10,9 +10,11 @@ public class ProductFactory {
 		AbstractProduct product = null;
 		if(ProductParser.isValidInput(input)){
 			String type = input.substring(0,input.indexOf("\"")).trim().toLowerCase();
+			String description = input.substring(input.indexOf("\"")+1,input.lastIndexOf("\"")).trim();
+			float price = Float.parseFloat(input.substring(input.lastIndexOf("\"")+1).substring(", prezzo ".length()));
 			if("libro".equals(type))
 			{
-				product = new Book();
+				product = new Book(description,price);
 			}
 			
 		}
