@@ -6,7 +6,6 @@ import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 
 import main.com.dos.ricevuta.products.Music;
-import main.com.dos.ricevuta.products.Pharm;
 
 class MusicTest {
 
@@ -14,6 +13,15 @@ class MusicTest {
 	void givenMusic_whenGetType_thenMusicIsReturned() {
 		Music music = new Music();
 		assertThat(music.getType(), Is.is("MUSIC"));
+	}
+	
+	@Test
+	void givenMusicWithData_whenGetPriceTaxed_thenPriceTaxedReturn() {
+		String descrizione = "Disco Innuendo";
+		float price = 20;
+		float priceWithTax = 22;
+		Music music = new Music(descrizione,price);
+		assertThat(music.getPriceTaxed(), Is.is(priceWithTax));
 	}
 	
 }
