@@ -10,6 +10,7 @@ import main.com.dos.ricevuta.ProductFactory;
 import main.com.dos.ricevuta.products.AbstractProduct;
 import main.com.dos.ricevuta.products.Book;
 import main.com.dos.ricevuta.products.Food;
+import main.com.dos.ricevuta.products.GenericProduct;
 import main.com.dos.ricevuta.products.Music;
 import main.com.dos.ricevuta.products.Pharm;
 
@@ -99,6 +100,13 @@ class ProductFactoryTest {
 		String input = "Vitamina \"flaconcini 20\", prezzo 0.49";
 		AbstractProduct product = ProductFactory.create(input);
 		assertTrue(product instanceof Pharm);
+	}
+	
+	@Test
+	void givenInputString_whenInputIsOtherType_thenInstanceOfGenericProductReturn() {
+		String input = "Qualsiasi Prodotto \"pentole da cucina\", prezzo 53.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertTrue(product instanceof GenericProduct);
 	}
 
 }

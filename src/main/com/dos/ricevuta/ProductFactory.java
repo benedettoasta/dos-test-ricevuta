@@ -5,6 +5,7 @@ import java.util.Arrays;
 import main.com.dos.ricevuta.products.AbstractProduct;
 import main.com.dos.ricevuta.products.Book;
 import main.com.dos.ricevuta.products.Food;
+import main.com.dos.ricevuta.products.GenericProduct;
 import main.com.dos.ricevuta.products.Music;
 import main.com.dos.ricevuta.products.Pharm;
 
@@ -54,6 +55,8 @@ public class ProductFactory {
 			}
 			else if(Arrays.asList(PHARMS).contains(type)){
 				product = new Pharm(description,price);
+			}else {
+				product = new GenericProduct(description,price);
 			}
 			
 		}
