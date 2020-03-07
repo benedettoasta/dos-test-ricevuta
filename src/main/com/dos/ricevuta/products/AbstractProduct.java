@@ -15,7 +15,6 @@ import main.com.dos.ricevuta.contracts.IProduct;
  */
 public abstract class AbstractProduct implements IProduct {
 	
-	protected static final float TAX_RATE = 0F;
 	protected static final float TAX_ADDED_FOREIGN_PRODUCT = 0.05F;
 
 	protected String type;
@@ -24,16 +23,15 @@ public abstract class AbstractProduct implements IProduct {
 	protected float taxRate;
 	protected boolean imported;
 	
-	protected void init(String descrizione, float price, boolean imported,String type)
+	protected void init(String descrizione, float price, boolean imported,String type,float taxRate)
 	{
 		this.description = descrizione;
 		this.price = price;
 		this.imported = imported;
 		this.type = type;
-		this.taxRate = AbstractProduct.TAX_RATE;
-		
+		this.taxRate = taxRate;
 		if(this.imported) {
-			this.taxRate = this.taxRate + AbstractProduct.TAX_ADDED_FOREIGN_PRODUCT;
+			this.taxRate = this.taxRate + TAX_ADDED_FOREIGN_PRODUCT;
 		}
 	}
 	

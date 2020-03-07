@@ -1,6 +1,6 @@
 package main.com.dos.ricevuta.products;
 
-public class Food extends AbstractProduct{
+public class Food extends AbstractProductLowTax{
 	
 	protected static final String TYPE_CLASS = "FOOD";
 

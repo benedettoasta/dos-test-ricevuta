@@ -7,7 +7,7 @@ package main.com.dos.ricevuta.products;
  * @author Benedetto
  *
  */
-public class Pharm extends AbstractProduct {
+public class Pharm extends AbstractProductLowTax {
 	
 	protected static final String TYPE_CLASS = "PHARM";
 	

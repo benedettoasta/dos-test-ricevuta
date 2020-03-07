@@ -1,8 +1,7 @@
 package main.com.dos.ricevuta.products;
 
-public class GenericProduct extends AbstractProduct {
+public class GenericProduct extends AbstractProductGenericTax {
 
-	protected static final float TAX_RATE = 0.1F;
 	protected static final String TYPE_CLASS = "GENERIC";
 
 	public GenericProduct()
@@ -20,14 +19,4 @@ public class GenericProduct extends AbstractProduct {
 		this.init(descrizione, price, imported,TYPE_CLASS);
 	}
 	
-	
-	protected void init(String descrizione, float price, boolean imported,String type)
-	{
-		super.init(descrizione, price, imported, type);
-		
-		this.taxRate = TAX_RATE;
-		if(this.imported) {
-			this.taxRate = this.taxRate + TAX_ADDED_FOREIGN_PRODUCT;
-		}
-	}
 }
