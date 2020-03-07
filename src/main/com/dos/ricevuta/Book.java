@@ -2,13 +2,15 @@ package main.com.dos.ricevuta;
 
 public class Book {
 	
-	public static final String TYPE_CLASS = "BOOK";
-	public static final float TAX_RATE = 0F;
+	protected static final String TYPE_CLASS = "BOOK";
+	protected static final float TAX_RATE = 0F;
+	protected static final float TAX_ADDED_FOREIGN_PRODUCT = 0.05F;
 	
 	protected String type;
 	protected String description;
 	protected float price;
 	protected float taxRate;
+	protected boolean imported;
 	
 	public Book()
 	{
@@ -17,6 +19,7 @@ public class Book {
 		
 		this.description = "";
 		this.price = 0;
+		this.imported = false;
 	}
 
 	public Book(String descrizione, float price) {
@@ -25,8 +28,21 @@ public class Book {
 		this.taxRate = Book.TAX_RATE;
 		
 		this.description = descrizione;
-		this.price = price;
+		this.price = price;		
+		this.imported = false;
+	}
+
+	public Book(String descrizione, float price, boolean imported) {
+		// TODO Auto-generated constructor stub
+		this.type  = Book.TYPE_CLASS;
+		this.taxRate = Book.TAX_RATE;
 		
+		this.description = descrizione;
+		this.price = price;
+		this.imported = true;		
+		if(this.imported) {
+			this.taxRate = this.taxRate + Book.TAX_ADDED_FOREIGN_PRODUCT;
+		}
 	}
 
 	public String getType() {
