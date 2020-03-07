@@ -43,4 +43,14 @@ class BookTest {
 		Book book = new Book(descrizione,price);
 		assertThat(book.getPrice(), Is.is(price));
 	}
+	
+	@Test
+	void givenBookWithData_whenGetPriceTaxed_thenPriceTaxedReturn() {
+		String descrizione = "Il Signore degli anelli";
+		float priceBook = 10;
+		float priceBookWithTax = 10;
+		Book book = new Book(descrizione,priceBook);
+		assertThat(book.getPriceTaxed(), Is.is(priceBookWithTax));
+	}
+	
 }
