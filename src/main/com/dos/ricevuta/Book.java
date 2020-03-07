@@ -14,32 +14,27 @@ public class Book {
 	
 	public Book()
 	{
-		this.type  = Book.TYPE_CLASS;
-		this.taxRate = Book.TAX_RATE;
-		
-		this.description = "";
-		this.price = 0;
-		this.imported = false;
+		this.init("", 0, false);
 	}
 
 	public Book(String descrizione, float price) {
 		// TODO Auto-generated constructor stub
-		this.type  = Book.TYPE_CLASS;
-		this.taxRate = Book.TAX_RATE;
-		
-		this.description = descrizione;
-		this.price = price;		
-		this.imported = false;
+		this.init(descrizione, price, false);
 	}
 
 	public Book(String descrizione, float price, boolean imported) {
 		// TODO Auto-generated constructor stub
+		this.init(descrizione, price, imported);
+	}
+	
+	protected void init(String descrizione, float price, boolean imported)
+	{
 		this.type  = Book.TYPE_CLASS;
 		this.taxRate = Book.TAX_RATE;
 		
 		this.description = descrizione;
 		this.price = price;
-		this.imported = true;		
+		this.imported = imported;
 		if(this.imported) {
 			this.taxRate = this.taxRate + Book.TAX_ADDED_FOREIGN_PRODUCT;
 		}
