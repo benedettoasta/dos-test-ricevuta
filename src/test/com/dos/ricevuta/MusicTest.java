@@ -6,7 +6,6 @@ import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 
 import main.com.dos.ricevuta.products.Music;
-import main.com.dos.ricevuta.products.Music;
 
 class MusicTest {
 
