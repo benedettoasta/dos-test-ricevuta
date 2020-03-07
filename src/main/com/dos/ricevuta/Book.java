@@ -1,5 +1,7 @@
 package main.com.dos.ricevuta;
 
+import java.util.Locale;
+
 public class Book {
 	
 	protected static final String TYPE_CLASS = "BOOK";
@@ -62,6 +64,10 @@ public class Book {
 	
 	public float getTaxes() {
 		return  this.price * this.taxRate;
+	}
+	
+	public String toString() {
+		return this.description + " - " + this.type + ": " + String.format(Locale.US,"%.2f", this.getPriceTaxed());
 	}
 
 }
