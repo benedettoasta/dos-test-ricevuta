@@ -10,6 +10,8 @@ import main.com.dos.ricevuta.ProductFactory;
 import main.com.dos.ricevuta.products.AbstractProduct;
 import main.com.dos.ricevuta.products.Book;
 import main.com.dos.ricevuta.products.Food;
+import main.com.dos.ricevuta.products.Music;
+import main.com.dos.ricevuta.products.Pharm;
 
 class ProductFactoryTest {
 
@@ -69,6 +71,34 @@ class ProductFactoryTest {
 		String input = "Pasta \"spaghetti #5\", prezzo 12.49";
 		AbstractProduct product = ProductFactory.create(input);
 		assertTrue(product instanceof Food);
+	}
+	
+	@Test
+	void givenInputString_whenInputIsCompactDisc_thenInstanceOfMusicReturn() {
+		String input = "CompactDisk \"innuendo\", prezzo 0.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertTrue(product instanceof Music);
+	}
+	
+	@Test
+	void givenInputString_whenInputIsHeadset_thenInstanceOfMusicReturn() {
+		String input = "headset \"cuffie da 3.5mm\", prezzo 0.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertTrue(product instanceof Music);
+	}
+	
+	@Test
+	void givenInputString_whenInputIsAntibiotico_thenInstanceOfPharmReturn() {
+		String input = "Antibiotico \"tachipirina\", prezzo 10.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertTrue(product instanceof Pharm);
+	}
+	
+	@Test
+	void givenInputString_whenInputIsVitamina_thenInstanceOfPharmReturn() {
+		String input = "Vitamina \"flaconcini 20\", prezzo 0.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertTrue(product instanceof Pharm);
 	}
 
 }
