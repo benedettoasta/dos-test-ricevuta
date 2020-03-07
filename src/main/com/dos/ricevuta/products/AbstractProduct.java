@@ -1,69 +1,75 @@
-package main.com.dos.ricevuta;
+package main.com.dos.ricevuta.products;
 
 import java.util.Locale;
 
-public class Book {
+import main.com.dos.ricevuta.contracts.IProduct;
+
+/**
+ * 
+ * @author Benedetto
+ *
+ * Ogni prodotto presenta caratteristiche comuni.
+ * Riportiamo in questa classe le informazioni condivise
+ * Fra qualsiasi tipo di prodotto. Andremo eventualmente a 
+ * Inserire astazioni intermedie di prodotti nel proseguimento dell'esercizio
+ */
+public abstract class AbstractProduct implements IProduct {
 	
-	protected static final String TYPE_CLASS = "BOOK";
 	protected static final float TAX_RATE = 0F;
 	protected static final float TAX_ADDED_FOREIGN_PRODUCT = 0.05F;
-	
+
 	protected String type;
 	protected String description;
 	protected float price;
 	protected float taxRate;
 	protected boolean imported;
 	
-	public Book()
-	{
-		this.init("", 0, false);
-	}
-
-	public Book(String descrizione, float price) {
-		// TODO Auto-generated constructor stub
-		this.init(descrizione, price, false);
-	}
-
-	public Book(String descrizione, float price, boolean imported) {
-		// TODO Auto-generated constructor stub
-		this.init(descrizione, price, imported);
-	}
-	
 	protected void init(String descrizione, float price, boolean imported)
 	{
-		this.type  = Book.TYPE_CLASS;
-		this.taxRate = Book.TAX_RATE;
-		
 		this.description = descrizione;
 		this.price = price;
 		this.imported = imported;
+		this.taxRate = AbstractProduct.TAX_RATE;
+		
 		if(this.imported) {
-			this.taxRate = this.taxRate + Book.TAX_ADDED_FOREIGN_PRODUCT;
+			this.taxRate = this.taxRate + AbstractProduct.TAX_ADDED_FOREIGN_PRODUCT;
 		}
 	}
-
+	
+	@Override
 	public String getType() {
 		// TODO Auto-generated method stub
 		return this.type;
 	}
 
+	@Override
 	public String getDescription() {
 		// TODO Auto-generated method stub
 		return this.description;
 	}
 
-	public Object getPrice() {
+	@Override
+	public float getPrice() {
 		// TODO Auto-generated method stub
 		return this.price;
 	}
 
+	@Override
 	public float getPriceTaxed() {
 		// TODO Auto-generated method stub
 		return this.price + this.getTaxes();
 	}
-	
+
+	@Override
 	public float getTaxes() {
-		return  this.price * this.taxRate;
+		// TODO Auto-generated method stub
+		return this.price * this.taxRate;
+	}
+
+	@Override
+	public String getProductFormattedRicevutaString() {
+		// TODO Auto-generated method stub
+		return this.toString();
 	}
 	
 	public String toString() {

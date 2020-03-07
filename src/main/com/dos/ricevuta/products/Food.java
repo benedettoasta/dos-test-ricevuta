@@ -1,4 +1,4 @@
-package main.com.dos.ricevuta;
+package main.com.dos.ricevuta.products;
 
 public class Food {
 

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertThat;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 
-import main.com.dos.ricevuta.Book;
+import main.com.dos.ricevuta.products.Book;
 
 class BookTest {
 
