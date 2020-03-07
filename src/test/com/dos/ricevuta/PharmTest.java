@@ -10,7 +10,7 @@ import main.com.dos.ricevuta.products.Pharm;
 class PharmTest {
 
 	@Test
-	void givenFood_whenGetType_thenFoodIsReturned() {
+	void givenPharm_whenGetType_thenPharmIsReturned() {
 		Pharm pharm = new Pharm();
 		assertThat(pharm.getType(), Is.is("PHARM"));
 	}
