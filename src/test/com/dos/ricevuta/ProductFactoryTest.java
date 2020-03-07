@@ -46,5 +46,13 @@ class ProductFactoryTest {
 		AbstractProduct product = ProductFactory.create(input);
 		assertThat(product.getPrice(), Is.is(12.49F));
 	}
+	
+
+	@Test
+	void givenInputString_whenInputIsFumetto_thenBookDataTypeCorrectlyReturn() {
+		String input = "Fumetto \"Topolino\", prezzo 12.49";
+		AbstractProduct product = ProductFactory.create(input);
+		assertThat(product.getType(), Is.is("BOOK"));
+	}
 
 }
