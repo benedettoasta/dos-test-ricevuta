@@ -24,4 +24,13 @@ class MusicTest {
 		assertThat(music.getPriceTaxed(), Is.is(priceWithTax));
 	}
 	
+	@Test
+	void givenImportedMusicWithData_whenGetPriceTaxed_thenPriceTaxedReturn() {
+		String descrizione = "Disco Innuendo";
+		float price = 20;
+		float priceWithTax = 23;
+		Music music = new Music(descrizione,price,true);
+		assertThat(music.getPriceTaxed(), Is.is(priceWithTax));
+	}
+	
 }
