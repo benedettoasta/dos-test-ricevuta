@@ -16,4 +16,9 @@ class BookTest {
 		assertThat(book.getType(), Is.is("BOOK"));
 	}
 
+	@Test
+	void givenBookWithoutData_whenGetDescription_thenEmptyStringReturn() {
+		Book book = new Book();
+		assertThat(book.getDescription(), Is.is(""));
+	}
 }
