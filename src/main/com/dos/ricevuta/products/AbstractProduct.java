@@ -2,6 +2,7 @@ package main.com.dos.ricevuta.products;
 
 import java.util.Locale;
 
+import main.com.dos.ricevuta.ProductUtils;
 import main.com.dos.ricevuta.contracts.IProduct;
 
 /**
@@ -72,7 +73,7 @@ public abstract class AbstractProduct implements IProduct {
 	}
 	
 	public String toString() {
-		return this.description + " - " + this.type + ": " + String.format(Locale.US,"%.2f", this.getPriceTaxed());
+		return this.description + " - " + this.type + ": " + ProductUtils.priceToString(this.getPriceTaxed());
 	}
 
 	public boolean getImported() {

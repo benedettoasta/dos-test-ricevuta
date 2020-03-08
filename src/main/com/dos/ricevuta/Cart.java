@@ -5,7 +5,6 @@ package main.com.dos.ricevuta;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import main.com.dos.ricevuta.contracts.IProduct;
 
@@ -14,6 +13,10 @@ import main.com.dos.ricevuta.contracts.IProduct;
  *
  */
 public class Cart {
+	
+	protected static final String PRODUCT_SEPARATOR = " ";
+	protected static final String TOTAL_TAXES_LABEL = "TAXES: ";
+	protected static final String TOTAL_PRICE_LABEL = "TOTAL: ";
 	
 	protected List<IProduct> products;
 	
@@ -36,11 +39,11 @@ public class Cart {
 		float cumulativeTaxes = 0.0F;
 		float cumulativePrices = 0.0F;
 		for(IProduct product:this.products) {
-			bill = bill + product.getProductFormattedRicevutaString() + " ";
+			bill = bill + product.getProductFormattedRicevutaString() + PRODUCT_SEPARATOR;
 			cumulativePrices += product.getPriceTaxed();
 			cumulativeTaxes += product.getTaxes();
 		}
-		bill += "TAXES: "+String.format(Locale.US,"%.2f", cumulativeTaxes)+" TOTAL: "+String.format(Locale.US,"%.2f", cumulativePrices);
+		bill += TOTAL_TAXES_LABEL + ProductUtils.priceToString(cumulativeTaxes) + PRODUCT_SEPARATOR + TOTAL_PRICE_LABEL + ProductUtils.priceToString(cumulativePrices);
 		return bill;
 	}
 }
