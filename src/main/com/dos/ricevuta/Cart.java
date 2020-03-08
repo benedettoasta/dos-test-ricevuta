@@ -18,6 +18,7 @@ public class Cart {
 	protected static final String TOTAL_TAXES_LABEL = "TAXES: ";
 	protected static final String TOTAL_PRICE_LABEL = "TOTAL: ";
 	protected static final String LUCKY_BONUS_LABEL = "Se ti chiami ###NOME### hai vinto un buono da 50 euro";
+	protected static final String LUCKY_BONUS_NAME_PLACEHOLDER= "###NOME###";
 	
 	protected List<IProduct> products;
 	protected boolean luckyBonus;
@@ -49,7 +50,9 @@ public class Cart {
 		bill += TOTAL_TAXES_LABEL + ProductUtils.priceToString(cumulativeTaxes) + PRODUCT_SEPARATOR + TOTAL_PRICE_LABEL + ProductUtils.priceToString(cumulativePrices);
 		
 		if(luckyBonus) {
-			bill += PRODUCT_SEPARATOR + LUCKY_BONUS_LABEL;
+			String randomName = ProductUtils.getRandomName();
+			String luckyBonusString = LUCKY_BONUS_LABEL.replace(LUCKY_BONUS_NAME_PLACEHOLDER, randomName);
+			bill += PRODUCT_SEPARATOR + luckyBonusString;
 		}
 		return bill;
 	}

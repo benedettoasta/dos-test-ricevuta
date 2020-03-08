@@ -3,6 +3,7 @@
  */
 package test.com.dos.ricevuta;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -69,5 +70,26 @@ class CartTest {
 		String bill = cart.getBill();
 		assertTrue(bill.startsWith(startWithExpected));
 		assertTrue(bill.contains(containsExpected));
+	}
+	
+	@Test
+	void givenCart_whenBillHaveLuckyBonus_thenNameReplaceByRandomAPI() {
+		Cart cart = new Cart();
+		cart.setLuckyBonus(true);
+		cart.addProduct(new Book("Il signore degli anelli",12.49F,false));
+		cart.addProduct(new Music("Innuendo",14.99F,false));
+		cart.addProduct(new Food("Cioccolata",0.85F,false));
+		
+		String startWithExpected = "Il signore degli anelli - BOOK: 12.49 Innuendo - MUSIC: 16.49 Cioccolata - FOOD: 0.85 TAXES: 1.50 TOTAL: 29.83";		
+		String containsExpected  = "hai vinto un buono da 50 euro";
+		/**
+		 *  NOTA: Verifico che la fattura non presenti il "placeholder" "###NOME###".
+		 */
+		String notContainsExpected  = "###NOME###";
+		
+		String bill = cart.getBill();
+		assertTrue(bill.startsWith(startWithExpected));
+		assertTrue(bill.contains(containsExpected));
+		assertFalse(bill.contains(notContainsExpected));
 	}
 }
