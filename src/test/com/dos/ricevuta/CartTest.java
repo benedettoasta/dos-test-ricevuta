@@ -30,5 +30,11 @@ class CartTest {
 		cart.addProduct(product);
 		assertThat(cart.countItems(),Is.is(1));
 	}
+	
+	@Test
+	void givenCart_whenGetBillOnEmptyCart_thenEmptyBillReturn() {
+		Cart cart = new Cart();
+		assertThat(cart.getBill(),Is.is("TAXES:0.00 TOTAL: 0.00"));
+	}
 
 }

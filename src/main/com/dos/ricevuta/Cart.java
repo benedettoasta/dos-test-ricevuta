@@ -28,4 +28,9 @@ public class Cart {
 		// TODO Auto-generated method stub
 		this.products.add(product);
 	}
+
+	public Object getBill() {
+		// TODO Auto-generated method stub
+		return "TAXES:0.00 TOTAL: 0.00";
+	}
 }
