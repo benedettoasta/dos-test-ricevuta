@@ -62,6 +62,10 @@ public class Application {
 		Cart cart;
 		while(true) {
 			if(addNewCart) {
+				System.out.println("");
+				System.out.println("--------------");
+				System.out.println("Nuovo Carrello");
+				System.out.println("--------------");
 				shopRegister.addCart(new Cart());
 				addNewCart = false;
 			}
