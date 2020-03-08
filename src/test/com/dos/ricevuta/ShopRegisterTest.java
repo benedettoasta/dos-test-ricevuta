@@ -43,4 +43,18 @@ class ShopRegisterTest {
 		assertTrue(lastCart.isLuckyBonus());
 	}
 
+	@Test
+	void givenShopRegisterWithALotCarts_whenAddTenMultipleCartInstance_thenTheseCartInstancesAreLuckyBonus() {
+		ShopRegister shopRegister = new ShopRegister();
+		for(int i = 1; i < 35; i++) {	
+			Cart tmpCart = new Cart();
+			shopRegister.addCart(tmpCart);
+			
+			boolean expetctedIsLuckyBonus = false;
+			if(i==10 || i==20 || i==30) {
+				expetctedIsLuckyBonus = true;				
+			}
+			assertThat(tmpCart.isLuckyBonus(),Is.is(expetctedIsLuckyBonus));
+		}
+	}
 }

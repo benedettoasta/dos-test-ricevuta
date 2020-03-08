@@ -18,10 +18,14 @@ public class ShopRegister {
 
 	public void addCart(Cart cart) {
 		// TODO Auto-generated method stub
-		if((countItems()+1) == 10){
+		if(isMultipleTenCart()){
 			cart.setLuckyBonus(true);
 		}
 		this.carts.add(cart);
+	}
+	
+	protected boolean isMultipleTenCart() {
+		return ((countItems()+1) % 10) == 0;
 	}
 
 	public Cart getLastCart() {

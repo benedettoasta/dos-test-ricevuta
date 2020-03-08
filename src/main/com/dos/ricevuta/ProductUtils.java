@@ -37,7 +37,7 @@ public class ProductUtils {
 		      InputStream inStream = connection.getInputStream();
 		      json = streamToString(inStream); // input stream to string
 	    } catch (IOException ex) {
-	      ex.printStackTrace();
+	    	  return "#NO_CONNECTION#";
 	    }
 		JSONObject obj = new JSONObject(json);
 		JSONObject data = obj.getJSONArray("results").getJSONObject(0).getJSONObject("name");
