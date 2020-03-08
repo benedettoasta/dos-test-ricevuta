@@ -61,4 +61,9 @@ public class Cart {
 		// TODO Auto-generated method stub
 		this.luckyBonus = luckyBonus;
 	}
+
+	public boolean isLuckyBonus() {
+		// TODO Auto-generated method stub
+		return this.luckyBonus;
+	}
 }
