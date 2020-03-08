@@ -5,6 +5,7 @@ package main.com.dos.ricevuta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import main.com.dos.ricevuta.contracts.IProduct;
 
@@ -29,8 +30,17 @@ public class Cart {
 		this.products.add(product);
 	}
 
-	public Object getBill() {
+	public String getBill() {
 		// TODO Auto-generated method stub
-		return "TAXES:0.00 TOTAL: 0.00";
+		String bill = "";
+		float cumulativeTaxes = 0.0F;
+		float cumulativePrices = 0.0F;
+		for(IProduct product:this.products) {
+			bill = bill + product.getProductFormattedRicevutaString() + " ";
+			cumulativePrices += product.getPriceTaxed();
+			cumulativeTaxes += product.getTaxes();
+		}
+		bill += "TAXES: "+String.format(Locale.US,"%.2f", cumulativeTaxes)+" TOTAL: "+String.format(Locale.US,"%.2f", cumulativePrices);
+		return bill;
 	}
 }
