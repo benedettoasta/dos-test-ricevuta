@@ -1,8 +1,5 @@
 package main.com.dos.ricevuta.products;
 
-import java.util.Locale;
-
-import main.com.dos.ricevuta.ProductUtils;
 import main.com.dos.ricevuta.contracts.IProduct;
 
 /**
@@ -65,14 +62,7 @@ public abstract class AbstractProduct implements IProduct {
 		// TODO Auto-generated method stub
 		return this.price * this.taxRate;
 	}
-
-	@Override
-	@Deprecated
-	public String getProductFormattedRicevutaString() {
-		// TODO Auto-generated method stub
-		return this.description + " - " + this.type + ": " + ProductUtils.priceToString(this.getPriceTaxed());
-	}
-
+	
 	public boolean getImported() {
 		return this.imported;
 	}

@@ -5,6 +5,7 @@ import static org.junit.Assert.assertThat;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 
+import main.com.dos.ricevuta.products.Food;
 import main.com.dos.ricevuta.products.Pharm;
 
 class PharmTest {
@@ -16,31 +17,17 @@ class PharmTest {
 	}
 	
 	@Test
-	void givenPharm_whenGetStringRicevuta_thenStringForRicevutaReturn() {
-		Pharm pharm = new Pharm("tachipirina, 10 - compresse",8,false);
-		String result = "tachipirina, 10 - compresse - PHARM: 8.00";
-		assertThat(pharm.getProductFormattedRicevutaString(), Is.is(result));
-	}
-	
-	@Test
-	void givenAnotherPharm_whenGetStringRicevuta_thenStringForRicevutaReturn() {
-		Pharm pharm = new Pharm("oki task",(float)12.5,false);
-		String result = "oki task - PHARM: 12.50";
-		assertThat(pharm.getProductFormattedRicevutaString(), Is.is(result));
-	}
-	
-	@Test
-	void givenImportedPharm_whenGetStringRicevuta_thenStringForRicevutaReturn() {
-		Pharm pharm = new Pharm("tachipirina, 10 - compresse",8,true);
-		String result = "tachipirina, 10 - compresse - PHARM: 8.40";
-		assertThat(pharm.getProductFormattedRicevutaString(), Is.is(result));
-	}
-	
-	@Test
-	void givenAnotherImportedPharm_whenGetStringRicevuta_thenStringForRicevutaReturn() {
-		Pharm pharm = new Pharm("oki task",(float)12.5,true);
-		String result = "oki task - PHARM: 13.13";
-		assertThat(pharm.getProductFormattedRicevutaString(), Is.is(result));
+	void givenPharmWithData_whenGetPriceTaxed_thenPriceTaxedReturn() {
+		Pharm prod = new Pharm("tachipirina, 10 - compresse",8);
+		float priceWithTax = 8F;
+		assertThat(prod.getPriceTaxed(), Is.is(priceWithTax));
 	}
 
+	@Test
+	void givenImportedPharmWithData_whenGetPriceTaxed_thenPriceTaxedWithFivePercPlusReturn() {
+		Pharm prod = new Pharm("tachipirina, 10 - compresse",8,true);
+		float priceWithTax = 8.4F;
+		assertThat(prod.getPriceTaxed(), Is.is(priceWithTax));
+	}	
+	
 }

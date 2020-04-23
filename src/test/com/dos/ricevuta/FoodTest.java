@@ -16,30 +16,17 @@ class FoodTest {
 	}
 	
 	@Test
-	void givenFood_whenGetStringRicevuta_thenStringForRicevutaReturn() {
-		Food food = new Food("Cioccolata, calda",5,false);
-		String result = "Cioccolata, calda - FOOD: 5.00";
-		assertThat(food.getProductFormattedRicevutaString(), Is.is(result));
+	void givenFoodWithData_whenGetPriceTaxed_thenPriceTaxedReturn() {
+		Food prod = new Food("Cioccolata, calda",5);
+		float priceWithTax = 5F;
+		assertThat(prod.getPriceTaxed(), Is.is(priceWithTax));
 	}
-	
+
 	@Test
-	void givenAnotherFood_whenGetStringRicevuta_thenStringForRicevutaReturn() {
-		Food food = new Food("Merenda al latte",20,false);
-		String result = "Merenda al latte - FOOD: 20.00";
-		assertThat(food.getProductFormattedRicevutaString(), Is.is(result));
-	}
-	
-	@Test
-	void givenImportedFood_whenGetStringRicevuta_thenStringForRicevutaReturn() {
-		Food food = new Food("Cioccolata, calda",5,true);
-		String result = "Cioccolata, calda - FOOD: 5.25";
-		assertThat(food.getProductFormattedRicevutaString(), Is.is(result));
-	}
-	
-	@Test
-	void givenAnotherImportedFood_whenGetStringRicevuta_thenStringForRicevutaReturn() {
-		Food food = new Food("Merenda al latte",20,true);
-		String result = "Merenda al latte - FOOD: 21.00";
-		assertThat(food.getProductFormattedRicevutaString(), Is.is(result));
-	}
+	void givenImportedFoodWithData_whenGetPriceTaxed_thenPriceTaxedWithFivePercPlusReturn() {
+		Food prod = new Food("Cioccolata, calda",5,true);
+		float priceWithTax = 5.25F;
+		assertThat(prod.getPriceTaxed(), Is.is(priceWithTax));
+	}	
+
 }
