@@ -28,6 +28,14 @@ public class Cart {
 		this.luckyBonus = false;
 	}
 	
+	public List<IProduct> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<IProduct> products) {
+		this.products = products;
+	}
+
 	public int countItems() {
 		return this.products.size();
 	}
@@ -35,26 +43,6 @@ public class Cart {
 	public void addProduct(IProduct product) {
 		// TODO Auto-generated method stub
 		this.products.add(product);
-	}
-
-	public String getBill() {
-		// TODO Auto-generated method stub
-		String bill = "";
-		float cumulativeTaxes = 0.0F;
-		float cumulativePrices = 0.0F;
-		for(IProduct product:this.products) {
-			bill = bill + product.getProductFormattedRicevutaString() + PRODUCT_SEPARATOR;
-			cumulativePrices += product.getPriceTaxed();
-			cumulativeTaxes += product.getTaxes();
-		}
-		bill += TOTAL_TAXES_LABEL + ProductUtils.priceToString(cumulativeTaxes) + PRODUCT_SEPARATOR + TOTAL_PRICE_LABEL + ProductUtils.priceToString(cumulativePrices);
-		
-		if(luckyBonus) {
-			String randomName = ProductUtils.getRandomName();
-			String luckyBonusString = LUCKY_BONUS_LABEL.replace(LUCKY_BONUS_NAME_PLACEHOLDER, randomName);
-			bill += PRODUCT_SEPARATOR + luckyBonusString;
-		}
-		return bill;
 	}
 
 	public void setLuckyBonus(boolean luckyBonus) {
