@@ -5,6 +5,9 @@ package main.com.dos.ricevuta;
 
 import java.util.Scanner;
 
+import main.com.dos.ricevuta.printers.CartPrinter;
+import main.com.dos.ricevuta.printers.ProductPrinter;
+
 /**
  * @author Benedetto
  *
@@ -75,7 +78,8 @@ public class Application {
 			String input = scanner.nextLine();
 			if("BILL".equals(input.toUpperCase())) {
 				
-				System.out.println(cart.getBill());
+				CartPrinter cartPrinter = new CartPrinter(cart, new ProductPrinter());
+				System.out.println(cartPrinter.print());
 				addNewCart = true;
 				
 			}

@@ -67,12 +67,9 @@ public abstract class AbstractProduct implements IProduct {
 	}
 
 	@Override
+	@Deprecated
 	public String getProductFormattedRicevutaString() {
 		// TODO Auto-generated method stub
-		return this.toString();
-	}
-	
-	public String toString() {
 		return this.description + " - " + this.type + ": " + ProductUtils.priceToString(this.getPriceTaxed());
 	}
 

@@ -17,5 +17,6 @@ public interface IProduct {
 	public float getPriceTaxed();
 	public float getTaxes();
 	
+	@Deprecated
 	public String getProductFormattedRicevutaString();
 }
